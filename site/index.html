@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>CYPK Soluções Digitais · Sistemas, sites e IA sob medida</title>
+  <meta name="description" content="Sistemas que rodam a operação do seu negócio: agenda, caixa, CRM e agente de IA no WhatsApp. Sete produtos construídos do banco de dados ao deploy. Portfólio da CYPK Soluções Digitais.">
+  <meta name="author" content="CYPK Soluções Digitais">
+  <meta name="theme-color" content="#07070f">
+  <link rel="canonical" href="https://cypkdigital.tech/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CYPK Soluções Digitais">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="CYPK Soluções Digitais · Sistemas, sites e IA sob medida">
+  <meta property="og:description" content="Sistemas que rodam a operação do seu negócio: agenda, caixa, CRM e agente de IA no WhatsApp. Sete produtos construídos do banco de dados ao deploy. Portfólio da CYPK Soluções Digitais.">
+  <meta property="og:url" content="https://cypkdigital.tech/">
+  <meta property="og:image" content="https://cypkdigital.tech/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CYPK Soluções Digitais · Sistemas, sites e IA sob medida">
+  <meta name="twitter:description" content="Sistemas que rodam a operação do seu negócio: agenda, caixa, CRM e agente de IA no WhatsApp. Sete produtos construídos do banco de dados ao deploy. Portfólio da CYPK Soluções Digitais.">
+  <meta name="twitter:image" content="https://cypkdigital.tech/og.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"CYPK Soluções Digitais",
+    "url":"https://cypkdigital.tech",
+    "image":"https://cypkdigital.tech/og.png",
+    "description":"Sistemas que rodam a operação do seu negócio: agenda, caixa, CRM e agente de IA no WhatsApp. Sete produtos construídos do banco de dados ao deploy. Portfólio da CYPK Soluções Digitais.",
+    "email":"cypk@gmail.com",
+    "telephone":"+5583991053672",
+    "areaServed":"BR",
+    "knowsLanguage":"pt-BR",
+    "sameAs":["https://instagram.com/cypkdigital"],
+    "makesOffer":[
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sites e landing pages"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemas sob medida"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Atendimento com IA no WhatsApp"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"CRM e automação de vendas"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gestão de tráfego pago"}}
+    ]
+  }
+  </script>
+
+  <style>
+    /* mesmo reset que a plataforma do Artifact injeta, para o visual não mudar */
+    :root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+    html{background:#07070f}
+    body{margin:0}
+    img{max-width:100%}
+    [hidden]{display:none!important}
+  </style>
+</head>
+<body>
+<style>
+/* ────────────────────────────────────────────────────────────────
+   CYPK · identidade escura, derivada do logo:
+   gradiente ciano → azul → violeta e o corte diagonal do C e do K.
+   Committed dark: a marca é escura, então não há variante clara.
+   ──────────────────────────────────────────────────────────────── */
+:root{
+  --ink:#07070f;
+  --ink-2:#0b0c16;
+  --ink-3:#11121e;
+  --ink-4:#171826;
+  --line:#22243a;
+  --line-2:#2e3150;
+  --text:#edeef6;
+  --muted:#8e92ac;
+  --muted-2:#6b6f88;
+  --violet:#8b7bf0;
+  --violet-soft:#b3a7f7;
+  --cyan:#3ad8ea;
+  --blue:#4c7df8;
+  --grad:linear-gradient(100deg,var(--cyan) 0%,var(--blue) 45%,var(--violet) 100%);
+  --ok:#3ecf9a;
+  --warn:#e8b455;
+
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Archivo","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+
+  --spine:1200px;
+  --notch:20px;
+  --r:14px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ink);color:var(--text);
+  font-family:var(--f-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--violet);color:#fff}
+
+/* fundo: brilho difuso nos cantos, nada de hero gigante */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 88% -8%,rgba(76,125,248,.16),transparent 62%),
+    radial-gradient(760px 480px at 4% 12%,rgba(58,216,234,.10),transparent 60%),
+    radial-gradient(1000px 700px at 50% 108%,rgba(139,123,240,.13),transparent 65%);
+}
+
+.wrap{max-width:var(--spine);margin:0 auto;padding-inline:20px}
+
+/* motivo da marca: canto cortado na diagonal, como o C e o K */
+.notch{
+  clip-path:polygon(0 0,calc(100% - var(--notch)) 0,100% var(--notch),100% 100%,var(--notch) 100%,0 calc(100% - var(--notch)));
+}
+
+/* ── tipografia ─────────────────────────────────────────── */
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance;letter-spacing:-.012em}
+h1{font-size:clamp(2.45rem,6.4vw,4.35rem);line-height:1.02}
+h2{font-size:clamp(1.95rem,4.1vw,3rem);line-height:1.08}
+h3{font-size:clamp(1.3rem,2.3vw,1.72rem);line-height:1.18}
+h4{font-size:1.08rem;line-height:1.3}
+p{margin:0}
+.lede{font-size:clamp(1.02rem,1.55vw,1.2rem);color:var(--muted);max-width:62ch}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.serif-em{font-family:var(--f-display);font-style:italic;color:var(--violet-soft)}
+
+.eyebrow{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--violet-soft);
+  display:flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);flex:none}
+
+/* ── cabeçalho ──────────────────────────────────────────── */
+header.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:rgba(7,7,15,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.top-in{display:flex;align-items:center;gap:22px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+/* o logo vem com fundo quase preto: screen apaga o fundo e mantém as letras */
+.brand img{height:22px;width:auto;mix-blend-mode:screen}
+.brand .tag{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--muted-2);padding-left:11px;border-left:1px solid var(--line-2);
+}
+nav.main{margin-left:auto;display:flex;gap:4px}
+nav.main a{
+  font-size:.875rem;color:var(--muted);padding:8px 13px;border-radius:9px;
+  transition:color .18s,background .18s;
+}
+nav.main a:hover{color:var(--text);background:var(--ink-3)}
+nav.main a.on{color:var(--text);background:var(--ink-3)}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;justify-content:center;
+  font-family:var(--f-body);font-size:.9rem;font-weight:600;
+  padding:11px 20px;border-radius:10px;border:1px solid transparent;
+  cursor:pointer;transition:transform .16s,box-shadow .2s,background .2s,border-color .2s;
+  white-space:nowrap;
+}
+.btn-1{background:var(--grad);color:#05060c;box-shadow:0 8px 26px -12px rgba(76,125,248,.75)}
+.btn-1:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(139,123,240,.85)}
+.btn-2{background:var(--ink-3);color:var(--text);border-color:var(--line-2)}
+.btn-2:hover{border-color:var(--violet);background:var(--ink-4)}
+.btn-sm{padding:9px 15px;font-size:.82rem}
+.top .btn{flex:none}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line-2);border-radius:9px;color:var(--text);width:40px;height:38px;cursor:pointer;font-size:1.1rem}
+
+/* ── hero ───────────────────────────────────────────────── */
+.hero{padding-block:clamp(48px,7vw,86px) 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(30px,5vw,64px);align-items:center}
+.hero h1{margin-top:20px}
+.hero .lede{margin-top:20px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-meta{
+  margin-top:34px;padding-top:24px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;
+}
+.hero-meta div span{
+  display:block;font-family:var(--f-mono);font-size:1.45rem;font-weight:500;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  font-variant-numeric:tabular-nums;
+}
+.hero-meta div small{display:block;color:var(--muted);font-size:.79rem;margin-top:3px;line-height:1.35}
+
+/* pilha de telas reais: a prova entra junto com a tese */
+.stack{position:relative;aspect-ratio:4/3.35;min-height:290px}
+.stack figure{
+  position:absolute;margin:0;border:1px solid var(--line-2);border-radius:11px;overflow:hidden;
+  background:var(--ink-3);box-shadow:0 34px 70px -30px rgba(0,0,0,.95);
+}
+.stack figure img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.stack .s1{inset:0 16% 22% 0;z-index:3}
+.stack .s2{inset:14% 0 8% 26%;z-index:2}
+.stack .s3{inset:44% 30% 0 8%;z-index:4}
+.stack figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:7px 10px;
+  background:linear-gradient(to top,rgba(5,5,12,.95),transparent);
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:#cfd2e6;
+}
+
+/* ── seções ─────────────────────────────────────────────── */
+section{padding-block:clamp(58px,8vw,104px);scroll-margin-top:88px}
+#contato{padding-top:clamp(20px,3vw,34px)}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(32px,4.5vw,52px);max-width:72ch}
+.rule{height:1px;background:linear-gradient(to right,var(--line-2),transparent);border:0;margin:0}
+
+/* ── serviços ───────────────────────────────────────────── */
+.serv{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px}
+.serv-card{
+  background:var(--ink-2);border:1px solid var(--line);padding:26px 24px 28px;
+  position:relative;transition:border-color .2s,transform .2s,background .2s;
+}
+.serv-card:hover{border-color:var(--line-2);transform:translateY(-3px);background:var(--ink-3)}
+.serv-card .num{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;color:var(--muted-2)}
+.serv-card h3{margin:13px 0 10px;font-size:1.34rem}
+.serv-card p{color:var(--muted);font-size:.925rem}
+.serv-card ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:7px}
+.serv-card li{font-size:.86rem;color:var(--muted);padding-left:17px;position:relative}
+.serv-card li::before{
+  content:"";position:absolute;left:0;top:.52em;width:7px;height:7px;
+  background:var(--grad);clip-path:polygon(0 0,100% 0,100% 100%);
+}
+
+/* ── portfólio ──────────────────────────────────────────── */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.chip{
+  font-family:var(--f-mono);font-size:.74rem;letter-spacing:.07em;
+  padding:8px 14px;border-radius:99px;border:1px solid var(--line-2);
+  background:transparent;color:var(--muted);cursor:pointer;transition:.18s;
+}
+.chip:hover{color:var(--text);border-color:var(--violet)}
+.chip[aria-pressed="true"]{background:var(--text);color:var(--ink);border-color:var(--text)}
+
+.cases{display:grid;gap:clamp(28px,4vw,46px)}
+.case{
+  background:var(--ink-2);border:1px solid var(--line);
+  padding:clamp(22px,3vw,34px);
+}
+.case[hidden]{display:none}
+.case-top{display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px 22px;margin-bottom:22px}
+.case-id{
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;color:var(--muted-2);
+  padding-top:9px;min-width:34px;
+}
+.case-name{flex:1 1 320px;min-width:0}
+.case-name h3{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.case-name p{color:var(--muted);margin-top:9px;font-size:.96rem;max-width:66ch}
+.badge{
+  font-family:var(--f-mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+  padding:5px 10px;border-radius:99px;border:1px solid;white-space:nowrap;
+}
+.b-live{color:var(--ok);border-color:rgba(62,207,154,.45);background:rgba(62,207,154,.09)}
+.b-own{color:var(--violet-soft);border-color:rgba(139,123,240,.45);background:rgba(139,123,240,.1)}
+.b-done{color:var(--muted);border-color:var(--line-2);background:var(--ink-3)}
+.b-new{color:var(--cyan);border-color:rgba(58,216,234,.4);background:rgba(58,216,234,.08)}
+
+.case-body{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:clamp(22px,3vw,38px);align-items:start}
+.shots{display:grid;gap:12px}
+.shots.two{grid-template-columns:1fr 1fr}
+
+/* moldura de navegador: o corte diagonal volta aqui */
+.frame{
+  border:1px solid var(--line-2);background:var(--ink-3);overflow:hidden;
+  border-radius:10px;cursor:zoom-in;display:block;width:100%;padding:0;text-align:left;
+  font:inherit;color:inherit;transition:border-color .2s,transform .2s;
+}
+.frame:hover{border-color:var(--violet);transform:translateY(-2px)}
+.frame:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.frame-bar{
+  display:flex;align-items:center;gap:8px;padding:8px 11px;
+  background:var(--ink-4);border-bottom:1px solid var(--line);
+}
+.frame-bar i{width:8px;height:8px;border-radius:50%;background:var(--line-2);flex:none}
+.frame-bar i:first-child{background:var(--violet);opacity:.7}
+.frame-bar span{
+  font-family:var(--f-mono);font-size:.64rem;color:var(--muted-2);
+  margin-left:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.frame-bar em{margin-left:auto;font-style:normal;font-family:var(--f-mono);font-size:.6rem;color:var(--muted-2);opacity:.75;flex:none}
+.frame img{width:100%;height:auto;background:var(--ink)}
+.shots.two .frame img{aspect-ratio:16/10;object-fit:cover;object-position:top left}
+
+.case-side h4{font-family:var(--f-body);font-weight:600;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2);font-family:var(--f-mono)}
+.feats{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:11px}
+.feats li{font-size:.9rem;color:#c8cbdd;padding-left:19px;position:relative;line-height:1.5}
+.feats li::before{
+  content:"";position:absolute;left:0;top:.48em;width:8px;height:8px;
+  background:var(--grad);clip-path:polygon(0 0,100% 0,100% 100%);
+}
+.stack-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.stack-chips b{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:400;letter-spacing:.04em;
+  padding:5px 9px;border-radius:6px;background:var(--ink-4);color:var(--muted);border:1px solid var(--line);
+}
+.case-side .sep{margin:22px 0;height:1px;background:var(--line);border:0}
+
+/* ── processo ───────────────────────────────────────────── */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;counter-reset:st}
+.step{background:var(--ink-2);border:1px solid var(--line);padding:26px 24px;position:relative}
+.step .n{
+  font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.step h3{margin:12px 0 9px;font-size:1.28rem}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* ── stack ──────────────────────────────────────────────── */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px}
+.skill{background:var(--ink-2);border:1px solid var(--line);padding:24px}
+.skill h4{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--violet-soft)}
+.skill .list{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.skill .list b{
+  font-family:var(--f-mono);font-size:.74rem;font-weight:400;
+  padding:6px 10px;border-radius:7px;background:var(--ink-4);border:1px solid var(--line);color:#c8cbdd;
+}
+.skill p{color:var(--muted);font-size:.87rem;margin-top:14px}
+
+/* ── contato ────────────────────────────────────────────── */
+.cta{
+  background:var(--ink-2);border:1px solid var(--line-2);
+  padding:clamp(30px,5vw,58px);position:relative;overflow:hidden;
+}
+.cta::after{
+  content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;
+  background:var(--grad);opacity:.12;filter:blur(64px);pointer-events:none;
+}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(26px,4vw,56px);align-items:start;position:relative}
+.cta h2{max-width:26ch}
+.cta .lede{margin-top:16px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;position:relative}
+.ask{border-left:1px solid var(--line-2);padding-left:clamp(20px,2.4vw,30px)}
+.ask h4{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--violet-soft)}
+.ask ol{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:a}
+.ask li{counter-increment:a;font-size:.9rem;color:#c8cbdd;padding-left:30px;position:relative;line-height:1.5}
+.ask li::before{
+  content:counter(a,decimal-leading-zero);position:absolute;left:0;top:.05em;
+  font-family:var(--f-mono);font-size:.7rem;color:var(--muted-2);
+}
+.ask p{color:var(--muted);font-size:.83rem;margin-top:18px}
+.canais{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.canais li{display:flex;gap:12px;align-items:baseline;font-size:.92rem;flex-wrap:wrap}
+.canais b{
+  font-family:var(--f-mono);font-size:.66rem;font-weight:400;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted-2);min-width:76px;flex:none;
+}
+.canais a{color:var(--text);border-bottom:1px solid var(--line-2);transition:border-color .18s,color .18s}
+.canais a:hover{color:var(--violet-soft);border-color:var(--violet)}
+.copy-note{font-family:var(--f-mono);font-size:.72rem;color:var(--ok);align-self:center}
+
+footer{border-top:1px solid var(--line);padding-block:32px 40px;margin-top:20px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;justify-content:space-between}
+.foot p{font-size:.8rem;color:var(--muted-2)}
+.foot img{height:34px;opacity:.9;mix-blend-mode:screen}
+.note{
+  margin-top:26px;font-size:.78rem;color:var(--muted-2);
+  border-left:2px solid var(--line-2);padding-left:14px;max-width:80ch;line-height:1.55;
+}
+
+/* ── lightbox ───────────────────────────────────────────── */
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(4,4,10,.94);
+  display:flex;flex-direction:column;padding:16px;gap:12px;
+  backdrop-filter:blur(6px);
+}
+.lb[hidden]{display:none}
+.lb-head{display:flex;align-items:center;gap:14px;flex:none}
+.lb-head p{font-family:var(--f-mono);font-size:.76rem;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-head .sp{margin-left:auto;display:flex;gap:8px;flex:none}
+.lb-body{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.lb-body img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--line-2);border-radius:10px}
+.lb button{background:var(--ink-3);border:1px solid var(--line-2);color:var(--text);border-radius:9px;width:40px;height:36px;cursor:pointer;font-size:.95rem}
+.lb button:hover{border-color:var(--violet)}
+
+/* ── animação de entrada, a partir de um estado visível ── */
+.rise{animation:rise .7s cubic-bezier(.2,.7,.25,1) both}
+@keyframes rise{from{opacity:.35;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .btn-1:hover,.frame:hover,.serv-card:hover{transform:none}
+}
+
+/* ── responsivo ─────────────────────────────────────────── */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .stack{order:-1;aspect-ratio:16/11;min-height:0}
+  .case-body{grid-template-columns:1fr}
+  .cta-grid{grid-template-columns:1fr}
+  .ask{border-left:0;border-top:1px solid var(--line-2);padding:26px 0 0}
+}
+@media (max-width:760px){
+  nav.main{display:none}
+  nav.main.open{
+    display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:2px;
+    background:var(--ink-2);border-bottom:1px solid var(--line);padding:12px 20px 18px;
+  }
+  .burger{display:block}
+  .top .btn{display:none}
+  .brand .tag{display:none}
+  .hero-meta{grid-template-columns:1fr;gap:14px}
+  .hero-meta div{display:flex;align-items:baseline;gap:10px}
+  .hero-meta div span{font-size:1.2rem}
+  .shots.two{grid-template-columns:1fr}
+  :root{--notch:14px}
+}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#topo" aria-label="CYPK Soluções Digitais">
+      <img src="assets/cypk-mark.png" alt="CYPK">
+      <span class="tag">Soluções digitais</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">☰</button>
+    <nav class="main" id="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#processo">Processo</a>
+      <a href="#stack">Stack</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-1 btn-sm" href="#contato">Falar com a CYPK</a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- ── HERO ───────────────────────────────────────────── -->
+  <section class="hero wrap" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="hero-grid">
+      <div class="rise">
+        <p class="eyebrow">Front-end · Sistemas · IA · Tráfego</p>
+        <h1>Eu construo o sistema que o seu negócio usa <span class="serif-em">todo dia</span>.</h1>
+        <p class="lede">
+          Não é site de vitrine. São produtos que rodam a operação: agenda que não deixa dois clientes no mesmo horário,
+          caixa que fecha o dia, CRM que mostra o próximo passo e agente de IA que atende no WhatsApp e chama uma
+          pessoa quando precisa. Do banco de dados ao deploy, eu faço sozinho.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-1" href="#portfolio">Ver os sistemas que eu fiz</a>
+          <a class="btn btn-2" href="#contato">Quero um orçamento</a>
+        </div>
+        <div class="hero-meta">
+          <div><span>7</span><small>sistemas completos construídos</small></div>
+          <div><span>2</span><small>rodando em produção hoje</small></div>
+          <div><span>28</span><small>telas reais nesta página</small></div>
+        </div>
+      </div>
+
+      <div class="stack rise" aria-hidden="true">
+        <figure class="s1 notch"><img src="assets/agenda-agenda.webp" alt=""><figcaption>Agenda da semana</figcaption></figure>
+        <figure class="s2"><img src="assets/cafe-dashboard.webp" alt=""><figcaption>Operação do café</figcaption></figure>
+        <figure class="s3"><img src="assets/agenda-agente.webp" alt=""><figcaption>Agente de IA</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVIÇOS ───────────────────────────────────────── -->
+  <section id="servicos" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">O que a CYPK faz</p>
+      <h2>Estratégia, design e tecnologia para <span class="grad-text">simplificar a sua operação</span>.</h2>
+      <p class="lede">Cada frente abaixo já virou produto no ar. O que muda de projeto para projeto é o tamanho, não o cuidado.</p>
+    </div>
+
+    <div class="serv">
+      <article class="serv-card notch">
+        <p class="num">01</p>
+        <h3>Sites e páginas</h3>
+        <p>Presença que carrega rápido, funciona no celular e leva a pessoa a falar com você.</p>
+        <ul>
+          <li>Sites institucionais com identidade própria</li>
+          <li>Landing pages para campanha e venda</li>
+          <li>Busca, filtros e catálogo</li>
+        </ul>
+      </article>
+
+      <article class="serv-card notch">
+        <p class="num">02</p>
+        <h3>Sistemas sob medida</h3>
+        <p>O painel que a sua equipe abre de manhã e usa até fechar.</p>
+        <ul>
+          <li>Agenda, pedidos, estoque e caixa</li>
+          <li>Permissão por cargo, checada no servidor</li>
+          <li>Relatório que vira decisão, não planilha</li>
+        </ul>
+      </article>
+
+      <article class="serv-card notch">
+        <p class="num">03</p>
+        <h3>Atendimento com IA</h3>
+        <p>Um agente que responde no WhatsApp com a informação da sua empresa, sem inventar preço.</p>
+        <ul>
+          <li>Responde só o que está na sua base</li>
+          <li>Transcreve áudio do cliente</li>
+          <li>Chama a equipe e para de responder</li>
+        </ul>
+      </article>
+
+      <article class="serv-card notch">
+        <p class="num">04</p>
+        <h3>CRM e vendas</h3>
+        <p>Cada contato com dono, histórico e próximo passo. Nada morre no caderno.</p>
+        <ul>
+          <li>Funil visual de oportunidades</li>
+          <li>Link rastreável por vendedor</li>
+          <li>Comissão calculada e aprovada</li>
+        </ul>
+      </article>
+
+      <article class="serv-card notch">
+        <p class="num">05</p>
+        <h3>Produtos digitais</h3>
+        <p>Da ideia ao MVP que você pode pôr na mão de um cliente de verdade nesta semana.</p>
+        <ul>
+          <li>Escopo enxuto, entrega em fases</li>
+          <li>Multiempresa desde o primeiro dia</li>
+          <li>Deploy em Docker, com banco e backup</li>
+        </ul>
+      </article>
+
+      <article class="serv-card notch">
+        <p class="num">06</p>
+        <h3>Tráfego e medição</h3>
+        <p>Campanha ligada ao sistema: você vê de onde veio o cliente que pagou.</p>
+        <ul>
+          <li>Gestão de tráfego pago</li>
+          <li>QR Code e link por origem</li>
+          <li>Funil medido do clique à venda</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <hr class="rule wrap">
+
+  <!-- ── PORTFÓLIO ──────────────────────────────────────── -->
+  <section id="portfolio" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Portfólio · obra própria</p>
+      <h2>Sete sistemas, construídos por mim, <span class="grad-text">do schema ao deploy</span>.</h2>
+      <p class="lede">
+        Todas as telas desta seção são capturas dos sistemas rodando de verdade, com dados de demonstração.
+        Clique em qualquer imagem para ver no tamanho real.
+      </p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filtrar projetos">
+      <button class="chip" data-f="all" aria-pressed="true">Todos</button>
+      <button class="chip" data-f="sistema" aria-pressed="false">Sistemas</button>
+      <button class="chip" data-f="ia" aria-pressed="false">IA e automação</button>
+      <button class="chip" data-f="site" aria-pressed="false">Sites e landing</button>
+      <button class="chip" data-f="crm" aria-pressed="false">CRM e vendas</button>
+    </div>
+
+    <div class="cases">
+
+      <!-- 1 · Agenda de Unha -->
+      <article class="case notch" data-tags="sistema ia crm">
+        <div class="case-top">
+          <p class="case-id">01</p>
+          <div class="case-name">
+            <h3>Agenda de Unha <span class="badge b-live">Em produção</span> <span class="badge b-own">Produto próprio</span></h3>
+            <p>O sistema operacional de um negócio de beleza. Agenda, clientes, financeiro e um agente de IA que atende no WhatsApp, tudo na mesma base. Multiempresa, com painel da plataforma e cobrança por plano.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots">
+            <button class="frame" data-shot="assets/agenda-agenda.webp" data-cap="Agenda de Unha · agenda da semana, 19 atendimentos">
+              <span class="frame-bar"><i></i><i></i><i></i><span>app/agenda</span><em>1440 × 900</em></span>
+              <img src="assets/agenda-agenda.webp" alt="Agenda semanal do Agenda de Unha com os atendimentos distribuídos por dia e profissional" loading="lazy">
+            </button>
+            <div class="shots two">
+              <button class="frame" data-shot="assets/agenda-financeiro.webp" data-cap="Agenda de Unha · financeiro do mês, comissão por profissional">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/financeiro</span></span>
+                <img src="assets/agenda-financeiro.webp" alt="Tela de financeiro com caixa do mês, receita por serviço e comissões" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/agenda-agente.webp" data-cap="Agenda de Unha · configuração do agente de IA">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/agente</span></span>
+                <img src="assets/agenda-agente.webp" alt="Configuração do agente de IA com modo de operação e instruções" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/agenda-agendar.webp" data-cap="Agenda de Unha · página pública de agendamento">
+                <span class="frame-bar"><i></i><i></i><i></i><span>/agendar</span></span>
+                <img src="assets/agenda-agendar.webp" alt="Página pública onde a cliente escolhe serviço e horário" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/agenda-relatorios.webp" data-cap="Agenda de Unha · funil da agenda">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/relatorios</span></span>
+                <img src="assets/agenda-relatorios.webp" alt="Relatório com o funil da jornada da cliente" loading="lazy">
+              </button>
+            </div>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Agenda que <b>não deixa</b> dois atendimentos no mesmo horário, garantido por restrição no banco e não só na tela</li>
+              <li>Link público de agendamento que a cliente usa sozinha, direto do story</li>
+              <li>Inbox de WhatsApp com a ficha da cliente do lado e o áudio dela já em texto</li>
+              <li>Financeiro que fecha o mês: receita por serviço, comissão por profissional, contas a pagar</li>
+              <li>Agente de IA que consulta a agenda de verdade por ferramentas e transfere quando não sabe</li>
+              <li>Painel da plataforma: contas, planos, pagamentos e visão de todas as clínicas</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Next.js 16</b><b>React 19</b><b>TypeScript</b><b>PostgreSQL</b><b>Drizzle</b><b>Tailwind v4</b><b>Redis · BullMQ</b><b>Claude · OpenAI</b><b>Docker</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 · Atendente de IA -->
+      <article class="case notch" data-tags="ia sistema">
+        <div class="case-top">
+          <p class="case-id">02</p>
+          <div class="case-name">
+            <h3>Atendente de IA para WhatsApp <span class="badge b-new">Novo</span></h3>
+            <p>Um agente que atende os clientes da empresa no WhatsApp usando só o que você escreveu sobre o seu negócio, e que passa a conversa para uma pessoa no momento certo. Configurado em arquivos, sem mexer em código.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots two">
+            <button class="frame" data-shot="assets/wa-painel.webp" data-cap="Atendente de IA · painel com as conversas e quem aguarda a equipe">
+              <span class="frame-bar"><i></i><i></i><i></i><span>/admin</span></span>
+              <img src="assets/wa-painel.webp" alt="Painel do atendente com lista de conversas e situação de cada uma" loading="lazy">
+            </button>
+            <button class="frame" data-shot="assets/wa-conversa.webp" data-cap="Atendente de IA · conversa, com opção de assumir">
+              <span class="frame-bar"><i></i><i></i><i></i><span>/admin/conversa</span></span>
+              <img src="assets/wa-conversa.webp" alt="Conversa entre cliente e atendente virtual, com campo para a equipe responder" loading="lazy">
+            </button>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Responde só com a base de conhecimento da empresa. Não inventa preço nem política</li>
+              <li>Junta os recados seguidos do cliente e responde uma vez, como uma pessoa faria</li>
+              <li>Transcreve o áudio, porque metade dos clientes fala em vez de escrever</li>
+              <li>Chama a equipe e <b>para de responder</b> naquela conversa até alguém assumir</li>
+              <li>Se você responde pelo celular, ele se cala sozinho e não atropela</li>
+              <li>API oficial da Meta ou número próprio por QR Code</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Node 24</b><b>TypeScript</b><b>Hono</b><b>SQLite</b><b>Claude</b><b>Gemini</b><b>OpenAI</b><b>WhatsApp Cloud API</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 · Sistema Café -->
+      <article class="case notch" data-tags="sistema">
+        <div class="case-top">
+          <p class="case-id">03</p>
+          <div class="case-name">
+            <h3>Sistema para Cafeteria <span class="badge b-done">Projeto entregue</span></h3>
+            <p>Do pedido na mesa ao fechamento do caixa. Comanda, cozinha em tempo real, pagamento misto, estoque com alerta e impressão térmica de verdade na cozinha.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots">
+            <button class="frame" data-shot="assets/cafe-dashboard.webp" data-cap="Sistema Café · visão geral da operação em tempo real">
+              <span class="frame-bar"><i></i><i></i><i></i><span>app/dashboard</span><em>1440 × 900</em></span>
+              <img src="assets/cafe-dashboard.webp" alt="Dashboard com vendas do dia, mesas ocupadas e situação da cozinha" loading="lazy">
+            </button>
+            <div class="shots two">
+              <button class="frame" data-shot="assets/cafe-cozinha.webp" data-cap="Sistema Café · painel da cozinha (KDS)">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/cozinha</span></span>
+                <img src="assets/cafe-cozinha.webp" alt="Painel da cozinha com pedidos em preparo e prontos" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/cafe-mesas.webp" data-cap="Sistema Café · mapa de mesas do salão">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/mesas</span></span>
+                <img src="assets/cafe-mesas.webp" alt="Mapa de mesas com situação de cada uma" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/cafe-estoque.webp" data-cap="Sistema Café · estoque com alerta de mínimo">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/estoque</span></span>
+                <img src="assets/cafe-estoque.webp" alt="Controle de estoque com insumos abaixo do mínimo destacados" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/cafe-relatorios.webp" data-cap="Sistema Café · relatórios e exportação">
+                <span class="frame-bar"><i></i><i></i><i></i><span>app/relatorios</span></span>
+                <img src="assets/cafe-relatorios.webp" alt="Relatórios de vendas por atendente, categoria e produto" loading="lazy">
+              </button>
+            </div>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Abre a comanda na mesa, manda para a cozinha e o preparo aparece na hora no painel dela</li>
+              <li>Caixa com pagamento misto, sangria, suprimento e fechamento do dia</li>
+              <li>Estoque que avisa antes de faltar o café em grãos</li>
+              <li>Impressão térmica real por fila e agente local, o mesmo caminho que um PDV profissional usa</li>
+              <li>Dois níveis de acesso conferidos em três camadas: menu, página e API</li>
+              <li>Relatório por atendente, categoria e produto, com exportação</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Next.js 16</b><b>TypeScript</b><b>Prisma</b><b>SQLite · PostgreSQL</b><b>Server-Sent Events</b><b>ESC/POS</b><b>shadcn/ui</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 · Central de Campanha -->
+      <article class="case notch" data-tags="site crm">
+        <div class="case-top">
+          <p class="case-id">04</p>
+          <div class="case-name">
+            <h3>Central de Campanha <span class="badge b-done">Case completo</span></h3>
+            <p>Landing de campanha que se chega por QR Code, com painel para medir cada origem. Feito com as regras de consentimento e período eleitoral dentro do produto, não só no texto.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots">
+            <div class="shots two">
+              <button class="frame" data-shot="assets/camp-landing.webp" data-cap="Central de Campanha · landing pública, aberta pelo QR Code">
+                <span class="frame-bar"><i></i><i></i><i></i><span>página pública</span></span>
+                <img src="assets/camp-landing.webp" alt="Landing page da campanha com número do candidato e propostas" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/camp-analytics.webp" data-cap="Central de Campanha · funil e origem dos acessos">
+                <span class="frame-bar"><i></i><i></i><i></i><span>admin/analytics</span></span>
+                <img src="assets/camp-analytics.webp" alt="Analytics com visitas, cadastros, funil de conversão e origem" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/camp-qrcodes.webp" data-cap="Central de Campanha · um QR Code por origem, cada um rastreado">
+                <span class="frame-bar"><i></i><i></i><i></i><span>admin/qrcodes</span></span>
+                <img src="assets/camp-qrcodes.webp" alt="Lista de QR Codes por origem com scans e conversão" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/camp-landing-editor.webp" data-cap="Central de Campanha · editor da landing com prévia no celular">
+                <span class="frame-bar"><i></i><i></i><i></i><span>admin/landing</span></span>
+                <img src="assets/camp-landing-editor.webp" alt="Editor de aparência da landing com pré-visualização em celular" loading="lazy">
+              </button>
+            </div>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Um QR Code para cada lugar: adesivo, outdoor, panfleto, bio do Instagram, e cada um com número próprio</li>
+              <li>Funil de verdade: scan do QR, visita, interação e cadastro, etapa por etapa</li>
+              <li>Editor da própria landing, com cores e seções, e prévia no celular</li>
+              <li>Consentimento versionado com trilha que não pode ser reescrita</li>
+              <li>Disparo bloqueado para quem não deu consentimento, e no período eleitoral</li>
+              <li>Exportação dos contatos em CSV</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Next.js 16</b><b>TypeScript</b><b>PostgreSQL · Supabase</b><b>Recharts</b><b>WhatsApp Cloud API</b><b>Zod</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 · Central de Afiliados -->
+      <article class="case notch" data-tags="crm sistema">
+        <div class="case-top">
+          <p class="case-id">05</p>
+          <div class="case-name">
+            <h3>Central de Afiliados <span class="badge b-live">Em produção</span></h3>
+            <p>Portal para quem revende. O vendedor entra, pega o link dele, acompanha os próprios leads num CRM e vê a comissão a receber. O admin vê o ranking de todos.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots two">
+            <button class="frame" data-shot="assets/afil-painel.webp" data-cap="Central de Afiliados · painel do vendedor com o link rastreável">
+              <span class="frame-bar"><i></i><i></i><i></i><span>/painel</span></span>
+              <img src="assets/afil-painel.webp" alt="Painel do vendedor com link de indicação, acessos e leads recentes" loading="lazy">
+            </button>
+            <button class="frame" data-shot="assets/afil-crm.webp" data-cap="Central de Afiliados · CRM do vendedor">
+              <span class="frame-bar"><i></i><i></i><i></i><span>/painel/crm</span></span>
+              <img src="assets/afil-crm.webp" alt="CRM com os leads do vendedor e a situação de cada um" loading="lazy">
+            </button>
+            <button class="frame" data-shot="assets/afil-comissao-vendedor.webp" data-cap="Central de Afiliados · comissão do vendedor">
+              <span class="frame-bar"><i></i><i></i><i></i><span>/painel/comissoes</span></span>
+              <img src="assets/afil-comissao-vendedor.webp" alt="Tela de comissões do vendedor" loading="lazy">
+            </button>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Link curto por vendedor que registra o clique e leva a pessoa ao produto</li>
+              <li>Ranking de cliques, leads e vendas, para a equipe se comparar</li>
+              <li>CRM isolado: cada vendedor vê só a carteira dele</li>
+              <li>Comissão lançada pelo vendedor e aprovada pelo admin, com histórico</li>
+              <li>Dois logins separados, com regras diferentes de sessão</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Next.js 16</b><b>TypeScript</b><b>Drizzle</b><b>PostgreSQL</b><b>Tailwind v4</b><b>Docker · Coolify</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 · Veliora -->
+      <article class="case notch" data-tags="sistema">
+        <div class="case-top">
+          <p class="case-id">06</p>
+          <div class="case-name">
+            <h3>Veliora <span class="badge b-own">Produto próprio</span></h3>
+            <p>Agendamento para qualquer negócio de hora marcada: barbearia, clínica, estética, personal trainer. Mesma engenharia do Agenda de Unha, sem ficar preso a um segmento.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots two">
+            <button class="frame" data-shot="assets/vel-agenda.webp" data-cap="Veliora · agenda do dia com transição de status">
+              <span class="frame-bar"><i></i><i></i><i></i><span>app/agenda</span></span>
+              <img src="assets/vel-agenda.webp" alt="Agenda do dia do Veliora com novo agendamento e confirmação" loading="lazy">
+            </button>
+            <button class="frame" data-shot="assets/vel-agendar.webp" data-cap="Veliora · página pública de agendamento">
+              <span class="frame-bar"><i></i><i></i><i></i><span>/agendar</span></span>
+              <img src="assets/vel-agendar.webp" alt="Página pública de agendamento com os serviços e preços" loading="lazy">
+            </button>
+            <button class="frame" data-shot="assets/vel-financeiro.webp" data-cap="Veliora · caixa do mês e lançamento de despesa">
+              <span class="frame-bar"><i></i><i></i><i></i><span>app/financeiro</span></span>
+              <img src="assets/vel-financeiro.webp" alt="Financeiro com entradas, saídas e lançamento de despesa" loading="lazy">
+            </button>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Anti-choque de horário em três camadas, com restrição de exclusão no próprio PostgreSQL</li>
+              <li>Uma conta, várias unidades e profissionais, com horário de trabalho por pessoa</li>
+              <li>Página pública por endereço próprio do negócio</li>
+              <li>Financeiro com comissão e despesa</li>
+              <li>Integração oficial de WhatsApp como opção, nunca obrigatória</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Next.js 16</b><b>TypeScript</b><b>PostgreSQL</b><b>Drizzle</b><b>Tailwind v4</b><b>Vitest · Playwright</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 · Site do Corretor -->
+      <article class="case notch" data-tags="site">
+        <div class="case-top">
+          <p class="case-id">07</p>
+          <div class="case-name">
+            <h3>Site de Imobiliária <span class="badge b-done">Projeto entregue</span></h3>
+            <p>Site do corretor com busca de verdade e um painel onde ele mesmo publica os imóveis, sem depender de ninguém para trocar uma foto.</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="shots">
+            <div class="shots two">
+              <button class="frame" data-shot="assets/imov-home.webp" data-cap="Site de Imobiliária · página inicial com destaques">
+                <span class="frame-bar"><i></i><i></i><i></i><span>página inicial</span></span>
+                <img src="assets/imov-home.webp" alt="Home do site de imobiliária com chamada e imóveis em destaque" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/imov-listagem.webp" data-cap="Site de Imobiliária · busca com filtros">
+                <span class="frame-bar"><i></i><i></i><i></i><span>/imoveis</span></span>
+                <img src="assets/imov-listagem.webp" alt="Listagem de imóveis com filtros de finalidade, tipo, cidade e preço" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/imov-detalhe.webp" data-cap="Site de Imobiliária · página do imóvel">
+                <span class="frame-bar"><i></i><i></i><i></i><span>/imoveis/1</span></span>
+                <img src="assets/imov-detalhe.webp" alt="Página do imóvel com galeria, preço e botão de WhatsApp" loading="lazy">
+              </button>
+              <button class="frame" data-shot="assets/imov-admin.webp" data-cap="Site de Imobiliária · painel do corretor">
+                <span class="frame-bar"><i></i><i></i><i></i><span>/admin</span></span>
+                <img src="assets/imov-admin.webp" alt="Painel do corretor com a lista de imóveis cadastrados" loading="lazy">
+              </button>
+            </div>
+          </div>
+          <div class="case-side">
+            <h4>O que ele resolve</h4>
+            <ul class="feats">
+              <li>Busca por finalidade, tipo, cidade, preço, dormitórios e palavra-chave</li>
+              <li>Página do imóvel com galeria e contato direto no WhatsApp, já com o imóvel na mensagem</li>
+              <li>Painel com upload de fotos, destaque na home e exclusão</li>
+              <li>Sem configuração de infraestrutura: o banco é um arquivo e sobe em qualquer lugar</li>
+            </ul>
+            <hr class="sep">
+            <h4>Stack</h4>
+            <div class="stack-chips">
+              <b>Next.js 16</b><b>TypeScript</b><b>SQLite</b><b>Tailwind</b><b>Upload de mídia</b>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="note">
+      As telas acima são dos sistemas em funcionamento, com dados de demonstração criados para a apresentação:
+      nenhum dado de cliente real aparece aqui. Agenda de Unha e Central de Afiliados estão no ar em produção;
+      os outros rodam completos e prontos para publicar.
+    </p>
+  </section>
+
+  <hr class="rule wrap">
+
+  <!-- ── PROCESSO ───────────────────────────────────────── -->
+  <section id="processo" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Da ideia ao produto</p>
+      <h2>Três etapas, e você vê a tela funcionando <span class="grad-text">antes do fim</span>.</h2>
+      <p class="lede">A sequência abaixo é a ordem real do trabalho. Cada etapa termina com algo que você pode abrir e usar.</p>
+    </div>
+    <div class="steps">
+      <article class="step notch">
+        <p class="n">Etapa 01</p>
+        <h3>Entender o problema certo</h3>
+        <p>Antes de desenhar, eu acompanho como a sua equipe trabalha hoje. Quase sempre o pedido inicial não é o gargalo. Sai daqui um escopo escrito, com o que fica fora e por quê.</p>
+      </article>
+      <article class="step notch">
+        <p class="n">Etapa 02</p>
+        <h3>Desenhar a experiência simples</h3>
+        <p>Menos telas, menos cliques, nada de configuração que o sistema pode descobrir sozinho. Você aprova o desenho vendo a interface, não um documento.</p>
+      </article>
+      <article class="step notch">
+        <p class="n">Etapa 03</p>
+        <h3>Construir e colocar no ar</h3>
+        <p>Entrego em fases, com teste automatizado nas regras que não podem falhar. Publico em servidor com banco, backup e domínio, e deixo documentado como mexer.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── STACK ──────────────────────────────────────────── -->
+  <section id="stack" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Como eu construo</p>
+      <h2>Um time de uma pessoa que cobre <span class="grad-text">a pilha inteira</span>.</h2>
+      <p class="lede">Front-end é onde eu começo, mas o projeto não para nele. Banco, servidor, integração e campanha estão no mesmo par de mãos, e isso corta o tempo de ida e volta.</p>
+    </div>
+    <div class="skills">
+      <article class="skill notch">
+        <h4>Front-end</h4>
+        <div class="list"><b>HTML</b><b>CSS</b><b>JavaScript</b><b>TypeScript</b><b>React 19</b><b>Next.js</b><b>Tailwind</b><b>Acessibilidade</b><b>Responsivo</b></div>
+        <p>Interface que funciona no celular do cliente e no computador da recepção, com foco visível, contraste e carregamento rápido.</p>
+      </article>
+      <article class="skill notch">
+        <h4>Back-end e dados</h4>
+        <div class="list"><b>Node.js</b><b>SQL</b><b>PostgreSQL</b><b>SQLite</b><b>Drizzle</b><b>Prisma</b><b>Python</b><b>Zod</b><b>Migrations</b></div>
+        <p>A regra que não pode falhar mora no banco, não só na tela. É o que faz a agenda nunca aceitar dois clientes no mesmo horário.</p>
+      </article>
+      <article class="skill notch">
+        <h4>IA e integrações</h4>
+        <div class="list"><b>Claude</b><b>Gemini</b><b>OpenAI</b><b>Tool calling</b><b>WhatsApp Cloud API</b><b>Webhooks</b><b>Transcrição</b></div>
+        <p>Agente que consulta o seu sistema por ferramentas antes de responder, com limite de gasto e passagem para humano.</p>
+      </article>
+      <article class="skill notch">
+        <h4>Infra e qualidade</h4>
+        <div class="list"><b>Docker</b><b>Coolify</b><b>Linux · VPS</b><b>Git</b><b>Vitest</b><b>Playwright</b><b>CI</b></div>
+        <p>Deploy com container, banco separado por projeto e teste que dirige a interface de verdade antes de eu chamar de pronto.</p>
+      </article>
+      <article class="skill notch">
+        <h4>Tráfego e medição</h4>
+        <div class="list"><b>Gestão de tráfego</b><b>Meta Ads</b><b>Google Ads</b><b>QR Code por origem</b><b>Funil</b><b>SEO técnico</b></div>
+        <p>Campanha e sistema conversando: você enxerga qual anúncio trouxe o cliente que realmente pagou.</p>
+      </article>
+      <article class="skill notch">
+        <h4>Como eu entrego</h4>
+        <div class="list"><b>Escopo escrito</b><b>Fases</b><b>Documentação</b><b>Código comentado</b><b>Sem dependência</b></div>
+        <p>O código fica seu, comentado e documentado. Você não fica preso a mim para trocar um preço ou um texto.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── CONTATO ────────────────────────────────────────── -->
+  <section id="contato" class="wrap">
+    <div class="cta notch">
+      <div class="cta-grid">
+        <div>
+          <p class="eyebrow">Próximo passo</p>
+          <h2>Vamos construir a sua próxima <span class="grad-text">solução</span>?</h2>
+          <p class="lede">
+            Me conte em duas linhas o que trava a sua operação hoje. Eu respondo com o que dá para resolver,
+            em quanto tempo e por quanto. Se não for a minha praia, eu digo isso também.
+          </p>
+          <div class="cta-actions" id="acoes"></div>
+          <ul class="canais" id="canais"></ul>
+        </div>
+        <div class="ask">
+          <h4>O que eu preciso saber</h4>
+          <ol>
+            <li>Qual tarefa consome mais tempo da sua equipe hoje</li>
+            <li>Quantas pessoas vão usar o sistema</li>
+            <li>O que você já usa e não quer perder</li>
+            <li>Se tem prazo para alguma data</li>
+          </ol>
+          <p>Com essas quatro respostas eu já consigo dizer o tamanho do projeto sem reunião.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/cypk-logo.png" alt="CYPK Soluções Digitais">
+    <p>Soluções digitais feitas para avançar. Ideias claras, produtos que funcionam.<br>
+      <a href="https://wa.me/5583991053672" style="border-bottom:1px solid var(--line-2)">(83) 99105-3672</a> ·
+      <a href="mailto:cypk@gmail.com" style="border-bottom:1px solid var(--line-2)">cypk@gmail.com</a> ·
+      <a href="https://instagram.com/cypkdigital" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line-2)">@cypkdigital</a>
+    </p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Tela ampliada">
+  <div class="lb-head">
+    <p id="lb-cap"></p>
+    <div class="sp">
+      <button id="lb-prev" aria-label="Tela anterior">‹</button>
+      <button id="lb-next" aria-label="Próxima tela">›</button>
+      <button id="lb-close" aria-label="Fechar">✕</button>
+    </div>
+  </div>
+  <div class="lb-body"><img id="lb-img" alt=""></div>
+</div>
+
+<script>
+/* ───────────────────────────────────────────────────────────
+   CONTATO — preencha e os botões aparecem sozinhos.
+   whatsapp: só números, com DDI e DDD. Ex: "5511988887777"
+   instagram: só o usuário, sem @.  Ex: "cypk.digital"
+   ─────────────────────────────────────────────────────────── */
+const CONTATO = {
+  whatsapp: "5583991053672",
+  whatsappLabel: "(83) 99105-3672",
+  instagram: "cypkdigital",
+  email: "cypk@gmail.com",
+  site: "cypkdigital.tech",
+};
+
+(function () {
+  "use strict";
+
+  /* botões de contato: só renderiza o que existe, nada de link morto */
+  const acoes = document.getElementById("acoes");
+  const add = (href, label, primary) => {
+    const a = document.createElement("a");
+    a.className = "btn " + (primary ? "btn-1" : "btn-2");
+    a.href = href;
+    a.textContent = label;
+    if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; }
+    acoes.appendChild(a);
+  };
+  if (CONTATO.whatsapp) {
+    add("https://wa.me/" + CONTATO.whatsapp + "?text=" + encodeURIComponent("Olá! Vi o portfólio da CYPK e queria falar sobre um projeto."), "Chamar no WhatsApp", true);
+  }
+  if (CONTATO.email) add("mailto:" + CONTATO.email + "?subject=" + encodeURIComponent("Projeto para a CYPK"), "Mandar e-mail", !CONTATO.whatsapp);
+  if (CONTATO.instagram) add("https://instagram.com/" + CONTATO.instagram, "Direct no Instagram", false);
+
+  /* os canais também em texto, para quem prefere anotar ou ligar */
+  const lista = document.getElementById("canais");
+  if (lista) {
+    const linha = (rot, valor, href) => {
+      const li = document.createElement("li");
+      const b = document.createElement("b");
+      b.textContent = rot;
+      li.appendChild(b);
+      const a = document.createElement(href ? "a" : "span");
+      a.textContent = valor;
+      if (href) { a.href = href; if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; } }
+      li.appendChild(a);
+      lista.appendChild(li);
+    };
+    if (CONTATO.whatsapp) linha("WhatsApp", CONTATO.whatsappLabel || CONTATO.whatsapp, "https://wa.me/" + CONTATO.whatsapp);
+    if (CONTATO.email) linha("E-mail", CONTATO.email, "mailto:" + CONTATO.email);
+    if (CONTATO.instagram) linha("Instagram", "@" + CONTATO.instagram, "https://instagram.com/" + CONTATO.instagram);
+    if (CONTATO.site) linha("Site", CONTATO.site, "https://" + CONTATO.site);
+  }
+
+  /* menu no celular */
+  const burger = document.getElementById("burger");
+  const nav = document.getElementById("nav");
+  burger.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+  });
+  nav.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") { nav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }
+  });
+
+  /* item ativo conforme a seção na tela */
+  const links = [...nav.querySelectorAll("a")];
+  const secs = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window && secs.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        links.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id));
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    secs.forEach((s) => io.observe(s));
+  }
+
+  /* filtro do portfólio */
+  const chips = [...document.querySelectorAll(".chip")];
+  const cases = [...document.querySelectorAll(".case")];
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const f = chip.dataset.f;
+      chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+      cases.forEach((c) => { c.hidden = f !== "all" && !c.dataset.tags.split(" ").includes(f); });
+    });
+  });
+
+  /* lightbox */
+  const shots = [...document.querySelectorAll(".frame")];
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lb-img");
+  const lbCap = document.getElementById("lb-cap");
+  let i = 0;
+  const show = (n) => {
+    i = (n + shots.length) % shots.length;
+    const s = shots[i];
+    lbImg.src = s.dataset.shot;
+    lbImg.alt = s.querySelector("img").alt;
+    lbCap.textContent = s.dataset.cap;
+  };
+  const open = (n) => { show(n); lb.hidden = false; document.body.style.overflow = "hidden"; document.getElementById("lb-close").focus(); };
+  const close = () => { lb.hidden = true; document.body.style.overflow = ""; shots[i].focus(); };
+  shots.forEach((s, n) => s.addEventListener("click", () => open(n)));
+  document.getElementById("lb-close").addEventListener("click", close);
+  document.getElementById("lb-next").addEventListener("click", () => show(i + 1));
+  document.getElementById("lb-prev").addEventListener("click", () => show(i - 1));
+  lb.addEventListener("click", (e) => { if (e.target === lb || e.target.classList.contains("lb-body")) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (lb.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") show(i + 1);
+    if (e.key === "ArrowLeft") show(i - 1);
+  });
+})();
+</script>
+
+</body>
+</html>
