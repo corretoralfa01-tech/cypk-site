@@ -34,3 +34,7 @@ Fundo acompanha o cursor em dispositivos com mouse. Composição da logo em pers
 Revisar e integrar a branch de reconstrução na `main`, depois executar o deploy do recurso existente no Coolify. Preservar domínio, variáveis, HTTPS e configuração de origem. O Dockerfile existente copia `site/` para nginx. A configuração atende diretórios reais e retorna 404 para rotas inexistentes.
 
 Contatos preservados do site anterior: WhatsApp `5583991053672`, Instagram `cypkdigital`, e-mail `cypk@gmail.com`.
+
+
+## Hero cinematográfico
+A página inicial usa o vídeo da referência com avanço pela rolagem nativa e composição nas cores CYPK. A referência de vídeo fornecida foi https://cdn.21st.dev/assets/mirror/21/21a77eac28eacbb7e142016eefeaa0b4a766619e51113629a3bc6df6af066c0f.mp4 (carregado sem áudio; poster local como fallback). Texto e marca estão em scripts/build.py; comportamento em site/app.js; aparência em site/styles.css. O botão Pular introdução e os CTAs ficam acessíveis durante a sequência. Sem JavaScript, com economia de dados, movimento reduzido ou falha do vídeo, a apresentação permanece estática e navegável.
