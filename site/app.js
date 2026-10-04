@@ -14,14 +14,22 @@ const form=document.querySelector('#brief-form');if(form){const service=form.ele
 (()=>{'use strict';
  const hero=document.querySelector('.cinema-hero');if(!hero)return;
  const video=hero.querySelector('video'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
- let raf=0,loaded=false,target=0,failed=false;
+ let raf=0,loaded=false,target=0,failed=false,priming=false,unlocked=false;
  const clamp=n=>Math.min(1,Math.max(0,n));
  const disabled=()=>reduce.matches||document.body.classList.contains('no-motion')||navigator.connection?.saveData;
- function seek(){if(!loaded||video.seeking||!Number.isFinite(video.duration))return;const t=target*Math.max(0,video.duration-.05);if(Math.abs(video.currentTime-t)>.035)video.currentTime=t;}
+ function seek(){if(!loaded||priming||video.seeking||!Number.isFinite(video.duration))return;const t=target*Math.max(0,video.duration-.05);if(Math.abs(video.currentTime-t)>.035)video.currentTime=t;}
  function render(){raf=0;const active=loaded&&!failed&&!disabled();hero.classList.toggle('is-scrubbing',active);const r=hero.getBoundingClientRect();target=active?clamp((parseFloat(getComputedStyle(hero.querySelector('.cinema-stage')).top)-r.top)/Math.max(1,hero.offsetHeight-hero.querySelector('.cinema-stage').offsetHeight)):0;const intro=1-clamp(target/.38),outro=clamp((target-.63)/.28);hero.style.setProperty('--intro-opacity',intro);hero.style.setProperty('--outro-opacity',outro);hero.style.setProperty('--intro-y',`${(1-intro)*-28}px`);hero.style.setProperty('--intro-blur',`${(1-intro)*8}px`);hero.style.setProperty('--video-scale',1+target*.06);hero.style.setProperty('--progress',target);hero.querySelector('.cinema-payoff').setAttribute('aria-hidden',String(outro<.5));if(active)seek();}
  function schedule(){if(!raf)raf=requestAnimationFrame(render);}
- function load(){if(disabled()||video.getAttribute('src')||failed)return;video.src=video.dataset.src;video.load();const p=video.play();if(p)p.then(()=>video.pause()).catch(()=>{});}
- video.addEventListener('loadeddata',()=>{loaded=true;schedule()},{once:true});video.addEventListener('seeked',()=>{if(!disabled())seek()});video.addEventListener('error',()=>{failed=true;loaded=false;schedule()});
+ // Some mobile browsers withhold loadeddata until a user gesture. Metadata is
+ // sufficient to establish scroll geometry; decoding can finish after interaction.
+ function ready(){if(Number.isFinite(video.duration)&&video.duration>0){loaded=true;schedule();}}
+ function prime(){if(disabled()||failed||priming||unlocked)return;priming=true;video.muted=true;let p;try{p=video.play()}catch{priming=false;return}if(p&&p.then)p.then(()=>{video.pause();unlocked=true;priming=false;ready();schedule()}).catch(()=>{priming=false;});else{video.pause();priming=false;}}
+ function load(){if(disabled()||video.getAttribute('src')||failed)return;video.muted=true;video.playsInline=true;video.preload='auto';video.src=video.dataset.src;video.load();prime();}
+ for(const event of ['loadedmetadata','loadeddata','canplay','durationchange'])video.addEventListener(event,ready);
+ video.addEventListener('seeked',()=>{if(!disabled())seek()});video.addEventListener('error',()=>{failed=true;loaded=false;schedule()});
+ // Retry inside a real touch gesture if autoplay was refused (notably iOS).
+ hero.addEventListener('touchstart',()=>{load();prime()},{passive:true});
+ hero.addEventListener('pointerdown',()=>{load();prime()},{passive:true});
  window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});reduce.addEventListener('change',()=>{load();schedule()});new MutationObserver(()=>{load();schedule()}).observe(document.body,{attributes:true,attributeFilter:['class']});
  hero.querySelector('.cinema-top a').addEventListener('click',e=>{e.preventDefault();const dest=document.querySelector('#apos-hero');dest.scrollIntoView({behavior:'instant',block:'start'});dest.focus({preventScroll:true});});load();schedule();
 })();
