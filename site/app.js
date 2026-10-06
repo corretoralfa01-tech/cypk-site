@@ -10,26 +10,33 @@ const dialog=document.querySelector('#image-dialog');document.querySelectorAll('
 const form=document.querySelector('#brief-form');if(form){const service=form.elements.servico;const initial=new URLSearchParams(location.search).get('servico');if([...service.options].some(o=>o.value===initial))service.value=initial;form.addEventListener('input',()=>{document.querySelector('#message-preview').hidden=true});form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const data=new FormData(form);const message=`Olá, Elizeu! Conheci a CYPK pelo site.\n\nMeu nome: ${data.get('nome').trim()}\nMeu negócio: ${data.get('empresa').trim()}\nTenho interesse em: ${service.selectedOptions[0].text}\n\n${data.get('mensagem').trim()}`;document.querySelector('#message-text').textContent=message;document.querySelector('#whatsapp-link').href='https://wa.me/5583991053672?text='+encodeURIComponent(message);document.querySelector('#message-preview').hidden=false;document.querySelector('#message-preview').scrollIntoView({behavior:paused?'auto':'smooth',block:'nearest'})});}
 })();
 
-/* Reference adapted to the static site. Native scroll keeps navigation usable. */
+/* Continuous hero playback, independent of page scrolling. */
 (()=>{'use strict';
  const hero=document.querySelector('.cinema-hero');if(!hero)return;
  const video=hero.querySelector('video'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
- let raf=0,loaded=false,target=0,failed=false,priming=false,unlocked=false;
+ let pending=false,failed=false;
+ document.body.classList.add('has-video-background');
+ const background=document.createElement('div');background.className='page-video-background';background.setAttribute('aria-hidden','true');document.body.prepend(background);background.appendChild(video);
+ let scrollPending=false;
+ function updateBackground(){const amount=Math.max(0,Math.min(1,window.scrollY/Math.max(1,hero.offsetHeight*.8)));background.style.setProperty('--body-video-shade',(.18+amount*.58).toFixed(3));scrollPending=false;}
+ window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateBackground);}},{passive:true});window.addEventListener('resize',updateBackground);updateBackground();
  const clamp=n=>Math.min(1,Math.max(0,n));
  const disabled=()=>reduce.matches||document.body.classList.contains('no-motion')||navigator.connection?.saveData;
- function seek(){if(!loaded||priming||video.seeking||!Number.isFinite(video.duration))return;const t=target*Math.max(0,video.duration-.05);if(Math.abs(video.currentTime-t)>.035)video.currentTime=t;}
- function render(){raf=0;const active=loaded&&!failed&&!disabled();hero.classList.toggle('is-scrubbing',active);const r=hero.getBoundingClientRect();target=active?clamp((parseFloat(getComputedStyle(hero.querySelector('.cinema-stage')).top)-r.top)/Math.max(1,hero.offsetHeight-hero.querySelector('.cinema-stage').offsetHeight)):0;const intro=1-clamp(target/.38),outro=clamp((target-.63)/.28);hero.style.setProperty('--intro-opacity',intro);hero.style.setProperty('--outro-opacity',outro);hero.style.setProperty('--intro-y',`${(1-intro)*-28}px`);hero.style.setProperty('--intro-blur',`${(1-intro)*8}px`);hero.style.setProperty('--video-scale',1+target*.06);hero.style.setProperty('--progress',target);hero.querySelector('.cinema-payoff').setAttribute('aria-hidden',String(outro<.5));if(active)seek();}
- function schedule(){if(!raf)raf=requestAnimationFrame(render);}
- // Some mobile browsers withhold loadeddata until a user gesture. Metadata is
- // sufficient to establish scroll geometry; decoding can finish after interaction.
- function ready(){if(Number.isFinite(video.duration)&&video.duration>0){loaded=true;schedule();}}
- function prime(){if(disabled()||failed||priming||unlocked)return;priming=true;video.muted=true;let p;try{p=video.play()}catch{priming=false;return}if(p&&p.then)p.then(()=>{video.pause();unlocked=true;priming=false;ready();schedule()}).catch(()=>{priming=false;});else{video.pause();priming=false;}}
- function load(){if(disabled()||video.getAttribute('src')||failed)return;video.muted=true;video.playsInline=true;video.preload='auto';video.src=video.dataset.src;video.load();prime();}
- for(const event of ['loadedmetadata','loadeddata','canplay','durationchange'])video.addEventListener(event,ready);
- video.addEventListener('seeked',()=>{if(!disabled())seek()});video.addEventListener('error',()=>{failed=true;loaded=false;schedule()});
- // Retry inside a real touch gesture if autoplay was refused (notably iOS).
- hero.addEventListener('touchstart',()=>{load();prime()},{passive:true});
- hero.addEventListener('pointerdown',()=>{load();prime()},{passive:true});
- window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});reduce.addEventListener('change',()=>{load();schedule()});new MutationObserver(()=>{load();schedule()}).observe(document.body,{attributes:true,attributeFilter:['class']});
- hero.querySelector('.cinema-top a').addEventListener('click',e=>{e.preventDefault();const dest=document.querySelector('#apos-hero');dest.scrollIntoView({behavior:'instant',block:'start'});dest.focus({preventScroll:true});});load();schedule();
+ function render(){const t=!disabled()&&!failed&&Number.isFinite(video.duration)&&video.duration>0?video.currentTime/video.duration:0;const intro=1-clamp(t/.38),outro=clamp((t-.63)/.28);hero.style.setProperty('--intro-opacity',intro);hero.style.setProperty('--outro-opacity',outro);hero.style.setProperty('--intro-y',`${(1-intro)*-28}px`);hero.style.setProperty('--intro-blur',`${(1-intro)*8}px`);hero.style.setProperty('--video-scale',1+t*.06);hero.style.setProperty('--progress',t);hero.querySelector('.cinema-payoff').setAttribute('aria-hidden',String(outro<.5));}
+ function sync(){
+  if(disabled()||document.hidden||failed){video.pause();render();return;}
+  video.muted=true;video.defaultMuted=true;video.playsInline=true;video.loop=true;video.autoplay=true;
+  if(!video.getAttribute('src')){video.src=video.dataset.src;video.preload='auto';video.load();}
+  if(pending||!video.paused)return;
+  pending=true;
+  try{const p=video.play();if(p&&p.then)p.then(()=>{pending=false;if(disabled()||document.hidden)video.pause();}).catch(()=>{pending=false;});else pending=false;}catch{pending=false;}
+ }
+ video.addEventListener('timeupdate',render);video.addEventListener('loadeddata',render);
+ video.addEventListener('error',()=>{failed=true;video.pause();render();});
+ // A touch can unlock playback when the browser refuses muted autoplay.
+ hero.addEventListener('touchstart',sync,{passive:true});hero.addEventListener('pointerdown',sync,{passive:true});
+ document.addEventListener('visibilitychange',sync);reduce.addEventListener('change',sync);
+ new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});
+ hero.querySelector('.cinema-top a').addEventListener('click',e=>{e.preventDefault();const dest=document.querySelector('#apos-hero');dest.scrollIntoView({behavior:'instant',block:'start'});dest.focus({preventScroll:true});});
+ sync();render();
 })();
