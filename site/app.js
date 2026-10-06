@@ -15,6 +15,11 @@ const form=document.querySelector('#brief-form');if(form){const service=form.ele
  const hero=document.querySelector('.cinema-hero');if(!hero)return;
  const video=hero.querySelector('video'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
  let pending=false,failed=false;
+ document.body.classList.add('has-video-background');
+ const background=document.createElement('div');background.className='page-video-background';background.setAttribute('aria-hidden','true');document.body.prepend(background);background.appendChild(video);
+ let scrollPending=false;
+ function updateBackground(){const amount=Math.max(0,Math.min(1,window.scrollY/Math.max(1,hero.offsetHeight*.8)));background.style.setProperty('--body-video-shade',(.18+amount*.58).toFixed(3));scrollPending=false;}
+ window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateBackground);}},{passive:true});window.addEventListener('resize',updateBackground);updateBackground();
  const clamp=n=>Math.min(1,Math.max(0,n));
  const disabled=()=>reduce.matches||document.body.classList.contains('no-motion')||navigator.connection?.saveData;
  function render(){const t=!disabled()&&!failed&&Number.isFinite(video.duration)&&video.duration>0?video.currentTime/video.duration:0;const intro=1-clamp(t/.38),outro=clamp((t-.63)/.28);hero.style.setProperty('--intro-opacity',intro);hero.style.setProperty('--outro-opacity',outro);hero.style.setProperty('--intro-y',`${(1-intro)*-28}px`);hero.style.setProperty('--intro-blur',`${(1-intro)*8}px`);hero.style.setProperty('--video-scale',1+t*.06);hero.style.setProperty('--progress',t);hero.querySelector('.cinema-payoff').setAttribute('aria-hidden',String(outro<.5));}
